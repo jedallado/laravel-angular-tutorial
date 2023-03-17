@@ -1,0 +1,22 @@
+<div class="form-container">
+  <h3 *ngIf="!todo.id">New ToDo</h3>
+  <h3 *ngIf="todo.id">Edit ToDo</h3>
+
+  <form [formGroup]="todoForm" (ngSubmit)="saveTodo()">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input type="text" placeholder="Title" formControlName="title" matInput />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea rows="3" placeholder="Description" formControlName="description" matInput></textarea>
+      </mat-form-field>
+    </div>
+
+    <a mat-raised-button [routerLink]="['/todos']">Back to list</a>
+    <button mat-raised-button color="primary" type="submit">Save</button>
+  </form>
+</div>
